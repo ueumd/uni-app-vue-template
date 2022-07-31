@@ -1,0 +1,18 @@
+// 字体颜色
+$base-font-color: #606266;
+$base-color-green: #91cc75;
+$base-color-white: #fff;
+$base-color-black: #000;
+$base-color-yellow: #fac858;
+$base-color-orange: #ff6700;
+$base-color-red: #ee6666;
+$base-color-gray: rgba(0, 0, 0, 0.65);
+
+//默认动画
+$base-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border 0s,
+background 0s, color 0s, font-size 0s;
+//默认动画长
+$base-transition-time: 0.3s;
+$base-transition-time-4: 0.4s;
+$base-color: #f45;
+$green-color: #11d86c;

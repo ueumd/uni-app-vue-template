@@ -1,0 +1,5 @@
+build/
+public
+dist
+node_modules/
+src/static
