@@ -25,5 +25,5 @@
     "src/**/*.vue",
     "src/auto-imports.d.ts"
   ],
-  "exclude": ["node_modules", "mock/**/*.ts"]
+  "exclude": ["node_modules", "uni_modules"]
 }

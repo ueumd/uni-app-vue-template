@@ -7,11 +7,6 @@ export default defineStore({
       token: 'token...'
     }
   },
-  getters: {
-    fullName: (state: any) => {
-      return state.name + '丰'
-    }
-  },
   actions: {
     setPhone(phone: number): void {
       this.phone = phone

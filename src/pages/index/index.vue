@@ -17,8 +17,9 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { ref, onMounted } from 'vue'
   import useStore from '@/store'
+  import api from '@/api'
 
   // store
   const { system, user } = useStore()
@@ -34,6 +35,12 @@
   const onConfirm = () => {
     console.log('onConfirm')
   }
+
+  onMounted(() => {
+    api.user.getUserId(1).then((res) => {
+      console.log('userId: ', res)
+    })
+  })
 </script>
 
 <style>

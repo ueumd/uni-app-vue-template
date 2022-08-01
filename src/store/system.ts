@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+
 let isWEIXIN = false
 let isH5 = false
 
@@ -26,7 +27,7 @@ export default defineStore('system', {
       model: systemInfo.model, // 手机型号
       isAndroid: systemInfo.system.includes('Android') || systemInfo.system.includes('Other'),
       isIOS: systemInfo.system.includes('iOS'),
-      isDev: process.env.NODE_ENV === 'development',
+      isDev: import.meta.env.MODE === 'development',
       isH5,
       isWEIXIN
     }

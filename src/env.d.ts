@@ -6,3 +6,8 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+
+declare module 'request' {
+  import Request from '@/lib/request/index'
+  export { Request }
+}

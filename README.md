@@ -7,6 +7,7 @@
 - Pinia
 - Typescript
 - SCSS
+- 封装 uni.request
 - 集成 Eslint + Stylelint + Prettier 来规范和格式化代码
 - 集成 Mock 辅助开发
 - 集成 uni-ui

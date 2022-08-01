@@ -2,8 +2,6 @@ import uni from '@dcloudio/vite-plugin-uni'
 import * as path from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
 import { defineConfig } from 'vite'
-import { viteMockServe } from 'vite-plugin-mock'
-const isDev = process.env.USE_MOCK === 'development'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,14 +14,6 @@ export default defineConfig({
         filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
         globalsPropValue: 'readonly' // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
       }
-    }),
-    viteMockServe({
-      logger: true,
-      watchFiles: true,
-      mockPath: 'mock',
-      supportTs: true,
-      localEnabled: isDev,
-      prodEnabled: false
     }),
     uni()
   ],
@@ -39,17 +29,17 @@ export default defineConfig({
       }
     }
   },
-  server: {
-    host: '0.0.0.0',
-    port: 8080
-    // proxy: {
-    //   '/api': {
-    //     target: 'https://xx.xxx.com',
-    //     changeOrigin: true,
-    //     rewrite: (path) => path.replace(/^\/api/, '')
-    //   }
-    // }
-  },
+  // server: {
+  //   // host: '0.0.0.0',
+  //   // port: 8080
+  //   proxy: {
+  //     '/external': {
+  //       target: 'https://test-api.xxxx.com',
+  //       changeOrigin: true,
+  //       rewrite: (path) => path.replace(/^\/external/, '')
+  //     }
+  //   }
+  // },
   build: {
     minify: 'terser',
     rollupOptions: {
