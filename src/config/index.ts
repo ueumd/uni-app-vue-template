@@ -5,25 +5,22 @@ import http from './requestConfig'
  * @returns {*}
  */
 export function setBaseURL(env = 'development'): string {
-  if (!env) {
-    import.meta.env.MODE === 'production' ? (env = 'production') : (env = 'development')
-  }
+  process.env.NODE_ENV === 'production' ? (env = 'production') : (env = 'development')
 
   // #ifdef H5
   if (['localhost'].includes(window.location.hostname)) {
     env = 'development'
   }
-  if (['test-m.xx.com'].includes(window.location.hostname)) {
+  if (['test-m.xxx.com'].includes(window.location.hostname)) {
     env = 'development'
   }
 
-  if (['m.xx.com'].includes(window.location.hostname)) {
+  if (['m.xxx.com'].includes(window.location.hostname)) {
     env = 'production'
   }
   // #endif
-
   const URL_LIST = {
-    development: 'https://test-api.xxxxx.com',
+    development: 'http://localhost:3000',
     production: 'https://api.xxx.com'
   }
 
@@ -31,7 +28,6 @@ export function setBaseURL(env = 'development'): string {
 }
 
 const config = {
-  isMock: 1,
   requestUrl: setBaseURL()
 }
 

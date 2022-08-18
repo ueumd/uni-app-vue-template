@@ -1,21 +1,28 @@
 <template>
-  <global-popup ref="popup">
+  <uni-popup ref="popupRef" type="bottom">
     <view class="show-modal">
-      <view class="title">{{ title }}</view>
-      <view v-if="content" class="content">{{ content }}</view>
+      <view class="title">{{ props.title }}</view>
+      <view v-if="content" class="content">{{ props.content }}</view>
       <view class="btn-box rowBC">
         <view class="cc cancel" @click="onCancel">{{ cancelText }}</view>
         <view class="cc sure" @click="onConfirm">{{ confirmText }}</view>
       </view>
     </view>
-  </global-popup>
+  </uni-popup>
 </template>
 
 <script setup lang="ts">
+  /**
+   * UI 需要自定义的modal
+   */
   import { ref } from 'vue'
-  const popup = ref()
+  const popupRef = ref()
   const $emit = defineEmits(['cancel', 'confirm'])
-  defineProps({
+  const props = defineProps({
+    type: {
+      type: String,
+      default: 'center'
+    },
     title: {
       type: String,
       default: '提示'
@@ -59,10 +66,10 @@
   }
 
   const showModal = () => {
-    popup.value.open()
+    popupRef.value.open(props.type)
   }
   const hideModal = () => {
-    popup.value.close()
+    popupRef.value.close()
   }
 
   // 父组件调用子组件必须要暴露出去

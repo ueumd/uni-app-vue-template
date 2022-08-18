@@ -12,7 +12,7 @@
       <text class="title">user phone: {{ user.phone }}</text>
       <button @click="user.setPhone(Date.now())">change phone</button>
     </view>
-    <global-modal ref="popupModal" title="标题" content="标题内容" @confirm="onConfirm" />
+    <global-modal ref="popupModal" title="标题1" content="标题内容2" @confirm="onConfirm" />
   </view>
 </template>
 
@@ -29,6 +29,7 @@
   const title = ref('Hello')
 
   const getShowModal = () => {
+    console.log('test getShowModal')
     popupModal.value.showModal()
   }
 
@@ -37,7 +38,7 @@
   }
 
   onMounted(() => {
-    api.user.getUserId(1).then((res) => {
+    api.user.getUserId().then((res) => {
       console.log('userId: ', res)
     })
   })

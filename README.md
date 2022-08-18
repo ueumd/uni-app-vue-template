@@ -24,5 +24,10 @@ pnpm run dev:h5
 pnpm run dev:mp-weixin
 ```
 
+```bash
+## update uni-app version
+ npx @dcloudio/uvm alpha
+```
+
 ## Test
 目前仅测试了微信小程序和H5平台，其他平台需要自行测试

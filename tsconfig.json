@@ -12,6 +12,7 @@
     "noImplicitAny": false,
     "lib": ["esnext", "dom"],
     "types": ["@dcloudio/types", "@types/node"],
+    "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"]
     }

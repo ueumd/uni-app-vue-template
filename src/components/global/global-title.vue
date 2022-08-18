@@ -1,12 +1,12 @@
 <template>
   <template v-if="!system.isWeixinClient">
-    <uni-nav-bar dark :fixed="true" background-color="#007AFF" status-bar left-icon="left" left-text="返回" :title="title" @clic-left="back" />
+    <uni-nav-bar dark :fixed="true" background-color="#007AFF" height="44" status-bar left-icon="left" left-text="返回" :title="title" @clic-left="back" />
   </template>
 </template>
 <script setup lang="ts">
   import useStore from '@/store/index'
   const { system } = useStore()
-  defineProps({
+  const props = defineProps({
     leftText: {
       type: Boolean,
       default: false

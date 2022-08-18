@@ -14,7 +14,7 @@ export const mergeConfig = function (_this, options) {
   } else {
     config.url = urlType ? options.url : _this.baseUrl + options.url
   }
-  //请求头
+
   if (options.header) {
     config.header = Object.assign({}, _this.header, options.header)
   } else {
@@ -22,7 +22,7 @@ export const mergeConfig = function (_this, options) {
   }
   return config
 }
-// 请求
+
 export const dispatchRequest = function (requestInfo) {
   return new Promise((resolve, reject) => {
     let requestAbort = true

@@ -12,7 +12,7 @@ export default class index {
     // 服务器上传文件名称
     this.defaultFileName = options.defaultFileName || ''
     //默认请求头
-    // this.header = options.header || {}
+    this.header = options.header || {}
     //默认配置
     this.config = options.config || {
       isPrompt: true,
@@ -107,8 +107,8 @@ export default class index {
       if (this.requestStart) {
         const requestStart = this.requestStart(requestInfo)
         if (typeof requestStart === 'object') {
-          const changekeys = ['data', 'header', 'isPrompt', 'load', 'isFactory']
-          changekeys.forEach((key) => {
+          const changeKeys = ['data', 'header', 'isPrompt', 'load', 'isFactory']
+          changeKeys.forEach((key) => {
             requestInfo[key] = requestStart[key]
           })
         } else {

@@ -27,9 +27,22 @@ export default defineStore('system', {
       model: systemInfo.model, // 手机型号
       isAndroid: systemInfo.system.includes('Android') || systemInfo.system.includes('Other'),
       isIOS: systemInfo.system.includes('iOS'),
-      isDev: import.meta.env.MODE === 'development',
+      isDev: process.env.NODE_ENV === 'development',
       isH5,
-      isWEIXIN
+      isWEIXIN,
+      isWeixinClient: isWeixinClient()
     }
   }
 })
+
+/**
+ * 判断是否为微信浏览器环境
+ * @returns {boolean}
+ */
+function isWeixinClient() {
+  let isWeixinClient = false
+  // #ifdef H5
+  isWeixinClient = window.navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1
+  // #endif
+  return isWeixinClient
+}
